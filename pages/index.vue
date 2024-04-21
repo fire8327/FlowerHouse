@@ -52,7 +52,7 @@
                     <p class="text-lg font-Comfortaa">Качественные фотографии</p>
                     <Icon class="text-2xl text-[#569E0B]/70" name="material-symbols:image-outline"/>
                 </div>
-                <p class="text-lg">Сайт предоставляет качественные фотографии каждого растения, чтобы пользователи могли увидеть их во всей красе.</p>
+                <p class="text-lg">Сайт предоставляет качественные фотографии каждого товара и услуги, чтобы пользователи могли увидеть их во всей красе.</p>
             </div>
             <div class="flex flex-col gap-6 rounded-xl shadow-[0px_0px_13px_-7px_black] p-4">
                 <div class="flex items-center gap-4">
@@ -63,6 +63,7 @@
             </div>
         </div>
     </div>    
+    <Feedback></Feedback>
 </template>
 
 <script setup>
