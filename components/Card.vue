@@ -6,7 +6,7 @@
         <p class="text-2xl font-Comfortaa">Керамический горшок «Серый камень»</p>
         <p class="text-xl font-semibold">3 500₽</p>
         <div class="flex items-center gap-2 max-md:flex-col text-lg">
-            <div class="flex items-center justify-center gap-6 px-4 py-1.5 md:h-full md:w-2/5 rounded-xl border border-[#665E5E]">
+            <div class="flex items-center justify-center gap-6 px-4 py-1.5 grow rounded-xl border border-[#665E5E]">
                 <button class="text-2xl" @click="minusCount">-</button>
                 <p>{{ cardCount }}</p>
                 <button class="text-2xl" @click="plusCount">+</button>
