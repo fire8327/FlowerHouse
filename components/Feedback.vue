@@ -12,7 +12,7 @@
             <Icon class="text-3xl text-white" name="ic:baseline-close"/>
         </button>
         <div class="fixed z-[6] transition-all duration-500 left-1/2 top-1/2 -translate-y-1/2" :class="isFeedbackShow ? '-translate-x-1/2' : 'translate-x-[5000px]'">
-            <FormKit type="form" :actions="false" form-class="p-4 bg-white flex flex-col gap-8 w-full max-w-[300px] rounded-xl">
+            <FormKit type="form" :actions="false" form-class="p-4 bg-white flex flex-col gap-8 w-full max-w-[300px] rounded-xl" messages-class="text-[#E9556D] font-Comfortaa">
                 <p class="text-xl font-Comfortaa">Форма обратной связи</p>
                 <div class="flex flex-col gap-4">
                     <FormKit type="text" name="Имя" validation="required" messages-class="text-[#E9556D] font-Comfortaa" input-class="w-full rounded-xl bg-transparent focus:outline-none border border-[#569E0B] py-2 px-4" placeholder="Ваше имя"></FormKit>
