@@ -62,8 +62,8 @@
     </div>   
     <div class="flex flex-col gap-6">
         <p class="text-3xl font-Comfortaa text-[#569E0B]/70">Наши новинки</p>
-        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
-           <Card v-for="n in 8"></Card>
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+           <Card v-for="n in 6"></Card>
         </div>
     </div>
     <div class="flex flex-col gap-6">
