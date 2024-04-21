@@ -37,6 +37,29 @@
             </div>
         </SwiperSlide>
     </Swiper>
+    <div class="flex flex-col gap-6 text-lg">
+        <p class="text-3xl font-Comfortaa text-[#569E0B]/70">Как это работает?</p>
+        <div class="flex items-start gap-2.5">
+            <Icon class="text-xl text-[#569E0B]/70 mt-1" name="lucide:leafy-green"/>  
+            <p>Специально оборудованные помещения со стеллажами</p>
+        </div> 
+        <div class="flex items-start gap-2.5">
+            <Icon class="text-xl text-[#569E0B]/70 mt-1" name="lucide:leafy-green"/>  
+            <p>Растения распределяются в зависимости от предпочтений, с правильным спектром освещения</p>
+        </div> 
+        <div class="flex items-start gap-2.5">
+            <Icon class="text-xl text-[#569E0B]/70 mt-1" name="lucide:leafy-green"/>  
+            <p>Растения получают профессиональный уход и профилактику заболеваний</p>
+        </div> 
+        <div class="flex items-start gap-2.5">
+            <Icon class="text-xl text-[#569E0B]/70 mt-1" name="lucide:leafy-green"/>  
+            <p>В летний период времени, тем растениям, которым это рекомендовано, обеспечивается «прогулки» на свежем воздухе, что способствует увеличению иммунитета цветов</p>
+        </div> 
+    </div> 
+    <div class="px-6 py-10 rounded-xl shadow-[0px_0px_13px_-7px_black] flex flex-col items-center text-center border border-gray-200">
+        <p class="text-3xl font-Comfortaa text-[#569E0B]/70">РАСТЕНИЯ ПРИНИМАЮТСЯ НА СРОК 2-4 НЕДЕЛИ</p>
+        <p class="text-xl font-semibold opacity-70">При необходимости оставить растение на более длительный срок (цена увеличивается в два раза со второго месяца), вам необходимо подать заявку, после чего наши менеджеры свяжутся с вами в ближайшее время, обеспечивая удобство и оперативность в обработке запроса.</p>
+    </div>   
     <div class="flex flex-col gap-6">
         <p class="text-3xl font-Comfortaa text-[#569E0B]/70">Наши преимущества</p>
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
