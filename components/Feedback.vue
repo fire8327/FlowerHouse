@@ -8,7 +8,7 @@
         </div>
         <div class="w-full h-[2px] bg-[#569E0B]/50 mb-6"></div>
         <div @click="isFeedbackShow = false" class="fixed bg-black/70 inset-0 z-[5] transition-all duration-500" :class="{'-translate-x-full' : !isFeedbackShow}"></div>
-        <button @click="isFeedbackShow = false" class="fixed top-8 right-8 z-[6]">
+        <button @click="isFeedbackShow = false" class="fixed top-8 right-8 z-[6]" :class="{'hidden' : !isFeedbackShow}">
             <Icon class="text-3xl text-white" name="ic:baseline-close"/>
         </button>
         <div class="fixed z-[6] transition-all duration-500 left-1/2 top-1/2 -translate-y-1/2" :class="isFeedbackShow ? '-translate-x-1/2' : 'translate-x-[5000px]'">
