@@ -25,7 +25,7 @@
                     </div>
                 </div>
             </div>
-            <div class="w-full h-0.5 bg-[#457453] rounded-full"></div>
+            <div class="w-full h-0.5 bg-[#569E0B] rounded-full"></div>
             <p class="text-center text-base">© 2024 Flower House</p>
         </div>
     </footer>

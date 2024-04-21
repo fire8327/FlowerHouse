@@ -1,5 +1,5 @@
 <template>
-    <header class="w-full py-4 grid-container border-b-2 border-[#457453] relative">
+    <header class="w-full py-4 grid-container border-b-2 border-[#569E0B] relative">
         <div class="flex items-center justify-between">
             <NuxtLink to="/">
                 <img src="/images/header/logo.png" alt="" class="w-36"> 
