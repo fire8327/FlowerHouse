@@ -12,7 +12,7 @@
                     </button>
                 </form>
                 <NuxtLink to="/">Главная</NuxtLink>
-                <NuxtLink to="/">Каталог</NuxtLink>
+                <NuxtLink to="/catalog">Каталог</NuxtLink>
                 <NuxtLink to="/">Услуги</NuxtLink>
                 <NuxtLink to="/">Контакты</NuxtLink>
                 <div class="flex items-center gap-4">
