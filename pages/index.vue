@@ -61,6 +61,12 @@
         <p class="text-xl font-semibold opacity-70">При необходимости оставить растение на более длительный срок (цена увеличивается в два раза со второго месяца), вам необходимо подать заявку, после чего наши менеджеры свяжутся с вами в ближайшее время, обеспечивая удобство и оперативность в обработке запроса.</p>
     </div>   
     <div class="flex flex-col gap-6">
+        <p class="text-3xl font-Comfortaa text-[#569E0B]/70">Наши новинки</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+           <Card></Card>
+        </div>
+    </div>
+    <div class="flex flex-col gap-6">
         <p class="text-3xl font-Comfortaa text-[#569E0B]/70">Наши преимущества</p>
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
             <div class="flex flex-col gap-6 rounded-xl shadow-[0px_0px_13px_-7px_black] p-4">
