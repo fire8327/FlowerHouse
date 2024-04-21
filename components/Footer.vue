@@ -9,11 +9,11 @@
                 </div>
                 <div class="flex items-start gap-4 xl:gap-8">
                     <div class="flex flex-col gap-4 text-lg">
-                        <p class="uppercase text-[#569E0B]/70 font-Comfortaa font-semibold">Адрес</p>   
+                        <p class="text-[#569E0B]/70 font-Comfortaa font-semibold">Адрес</p>   
                         <p>Уфа, ул Пархоменко, 156г <br> пн—сб с 12:00 — 20:00</p>
                     </div>
                     <div class="flex flex-col gap-4 text-lg">
-                        <p class="uppercase text-[#569E0B]/70 font-Comfortaa font-semibold">Контакты</p>   
+                        <p class="text-[#569E0B]/70 font-Comfortaa font-semibold">Контакты</p>   
                         <div class="flex items-center gap-4">
                             <NuxtLink to="/" class="transition-all duration-500 hover:text-[#569E0B]/70">
                                 <Icon class="text-2xl" name="simple-icons:telegram"/>
