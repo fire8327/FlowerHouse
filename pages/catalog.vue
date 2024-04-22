@@ -21,7 +21,7 @@
                 <FormKit type="text" name="От" outer-class="w-1/2" input-class="px-4 py-2 border border-[#569E0B]/70 rounded-l-xl focus:outline-none w-full" placeholder="От"/>
                 <FormKit type="text" name="До" outer-class="w-1/2" input-class="px-4 py-2 border border-[#569E0B]/70 rounded-r-xl focus:outline-none w-full" placeholder="До"/>
             </div>
-            <FormKit type="select" :options="['Все','Горшки','Грунты','Удобрения']" outer-class="max-lg:w-full" input-class="px-4 py-2 border border-[#569E0B]/70 rounded-xl focus:outline-none w-full"/>
+            <FormKit type="select" :options="['Все','Горшки','Грунты','Удобрения']" outer-class="max-lg:w-full" input-class="px-4 py-2 border border-[#569E0B]/70 rounded-xl focus:outline-none w-full bg-white"/>
         </div>
         <div class="flex items-center gap-4">
             <button class="px-4 py-2 w-fit bg-[#569E0B] text-white rounded-xl">Применить</button>
