@@ -35,4 +35,10 @@
 <script setup>
     /* открытие мобильного меню */
     const isMenuShow = ref(false) 
+
+    /* закрытие мобильного меню */
+    const nuxtApp = useNuxtApp()
+    nuxtApp.hook('page:start', () => {
+        isMenuShow.value = false
+    })
 </script>
