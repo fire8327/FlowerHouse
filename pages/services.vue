@@ -9,7 +9,7 @@
                 </div>
             </div>
         </div>
-        <div class="flex items-center gap-2 font-Comfortaa text-lg wrapper mx-auto w-full">
+        <div class="flex items-center gap-2 font-Comfortaa text-lg wrapper mx-auto w-full px-[15px] sm:px-5">
             <NuxtLink to="/" class="relative after:absolute after:w-0 after:h-px after:bg-[#665E5E] after:bottom-0 after:left-0 after:transition-all after:duration-500 hover:after:w-full">Главная</NuxtLink>
             <p>/</p>
             <p>Услуги</p>
