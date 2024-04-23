@@ -29,10 +29,15 @@
         </div>    
     </FormKit>
     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
-       <Card v-for="n in 12"></Card>
+       <Card v-for="product in products.sort(() => Math.random() - 0.5)" v-bind="product"></Card>
     </div>
 </template>
 
 <script setup>
+    /* подключение БД */
+    const supabase = useSupabaseClient() 
 
+    const { data: products, error } = await supabase
+    .from('products')
+    .select('*')
 </script>

@@ -21,7 +21,7 @@
             Наши специалисты пересадят растения в подходящий качественный грунт с консультацией по подходящему объему горшка.
         </p>
         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
-           <Card v-for="n in 4"></Card>
+           <Card v-for="service in services" v-bind="service"></Card>
         </div>
     </div>
     <div class="flex flex-col gap-6">
@@ -46,5 +46,10 @@
 </template>
 
 <script setup>
+    /* подключение БД */
+    const supabase = useSupabaseClient() 
 
+    const { data: services, error } = await supabase
+    .from('products')
+    .select('*')
 </script>
