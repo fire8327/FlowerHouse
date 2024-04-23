@@ -15,6 +15,34 @@
             <p>Услуги</p>
         </div>
     </div>
+    <div class="flex flex-col gap-6">
+        <p class="text-3xl font-Comfortaa text-[#569E0B]/70">Пересадка растений</p>
+        <p class="text-lg">
+            Наши специалисты пересадят растения в подходящий качественный грунт с консультацией по подходящему объему горшка.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+           <Card v-for="n in 4"></Card>
+        </div>
+    </div>
+    <div class="flex flex-col gap-6">
+        <p class="text-3xl font-Comfortaa text-[#569E0B]/70">Гостиница для растений</p>
+        <p class="text-lg">
+            Мы готовы взять на себя заботу о ваших растениях на время вашего отпуска, командировки.
+            Во время пребывания растений в гостинице они получат профессиональный уход, обработку от вредителей.
+            В летний период времени возможно размещение растений на открытом воздухе, что способствует увеличению их иммунитета.
+        </p>
+        <div class="flex flex-col gap-4 items-center md:w-2/3 lg:w-1/2 mx-auto">
+            <img src="/images/services/rent.webp" alt="" class="aspect-video object-cover rounded-xl">
+            <FormKit type="form" :actions="false" messages-class="hidden" form-class="flex max-md:flex-col max-md:items-center items-start gap-4">
+                <div class="flex items-start gap-2 max-md:w-full">
+                    <FormKit type="date" validation="required" messages-class="text-[#E9556D] font-Comfortaa" name="Начальная дата" outer-class="w-1/2" input-class="px-4 py-2 border border-[#569E0B]/70 rounded-l-xl focus:outline-none w-full"/>
+                    <FormKit type="date" validation="required" messages-class="text-[#E9556D] font-Comfortaa" name="Конечная дата" outer-class="w-1/2" input-class="px-4 py-2 border border-[#569E0B]/70 rounded-r-xl focus:outline-none w-full"/>
+                </div>
+                <FormKit type="text" validation="required|number" messages-class="text-[#E9556D] font-Comfortaa" name="Количество растений" outer-class="max-md:w-full" input-class="px-4 py-2 border border-[#569E0B]/70 rounded-xl focus:outline-none w-full" placeholder="Количество растений"/>
+                <button type="submit" class="px-4 py-2 bg-[#569E0B] text-white rounded-xl shrink-0">В корзину</button>
+            </FormKit>
+        </div>
+    </div>
 </template>
 
 <script setup>

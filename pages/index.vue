@@ -5,7 +5,7 @@
             <div class="absolute inset-0 bg-black/30"></div>
             <div class="absolute inset-0 py-10 px-4 flex justify-center items-center text-white">
                 <div class="flex flex-col relative gap-6 w-full md:w-2/3 lg:w-1/3 p-4 lg:p-6 rounded-2xl overflow-hidden">
-                    <div class="absolute inset-0 backdrop-blur-sm"></div>
+                    <div class="absolute inset-0 backdrop-blur-md"></div>
                     <p class="text-2xl font-Comfortaa z-[1]">Очарование природы</p>
                     <p class="opacity-80 text-lg z-[1]">Приветствуют вас зеленые оазисы нашей гостиницы! Здесь каждое растение находит свой дом, обеспечивая комфорт и уют как для них, так и для наших гостей. Мы с гордостью поддерживаем экосистему, где каждое зеленое создание процветает благодаря заботе и вниманию. Наш дом становится их домом, а уход за растениями - нашим приоритетом, создавая гармонию и радость для всех, кто здесь останавливается.</p>
                     <NuxtLink to="/catalog" class="z-[1] px-4 py-2 rounded-xl mx-auto bg-[#569E0B] hover:bg-[#665E5E] transition-all duration-500">Перейти в каталог</NuxtLink>
@@ -17,7 +17,7 @@
             <div class="absolute inset-0 bg-black/30"></div>
             <div class="absolute inset-0 py-10 px-4 flex justify-center items-center text-white">
                 <div class="flex flex-col relative gap-6 w-full md:w-2/3 lg:w-1/3 p-4 lg:p-6 rounded-2xl overflow-hidden">
-                    <div class="absolute inset-0 backdrop-blur-sm"></div>
+                    <div class="absolute inset-0 backdrop-blur-md"></div>
                     <p class="text-2xl font-Comfortaa z-[1]">Погружение в зеленые объятия</p>
                     <p class="opacity-80 text-lg z-[1]">В нашей гостинице для растений каждая зеленая душа находит свое идеальное место, где она может процветать в соответствии со своей природой. Наше внимание к деталям и забота о каждом растении позволяют им чувствовать себя как дома, а наши гости наслаждаются уютом и спокойствием этого зеленого уголка.</p>
                     <NuxtLink to="/catalog" class="z-[1] px-4 py-2 rounded-xl mx-auto bg-[#569E0B] hover:bg-[#665E5E] transition-all duration-500">Перейти в каталог</NuxtLink>
@@ -29,7 +29,7 @@
             <div class="absolute inset-0 bg-black/30"></div>
             <div class="absolute inset-0 py-10 px-4 flex justify-center items-center text-white">
                 <div class="flex flex-col relative gap-6 w-full md:w-2/3 lg:w-1/3 p-4 lg:p-6 rounded-2xl overflow-hidden">
-                    <div class="absolute inset-0 backdrop-blur-sm"></div>
+                    <div class="absolute inset-0 backdrop-blur-md"></div>
                     <p class="text-2xl font-Comfortaa z-[1]">Создайте свой зеленый уголок</p>
                     <p class="opacity-80 text-lg z-[1]">Ваш дом для растений начинается здесь. От ярких, солнечных окон, наполняющих пространство светом, до тщательно подобранной системы полива, обеспечивающей растения влагой в нужном объеме. Каждое растение становится частью обширного экосистемы, придающей жизнь нашему дому и наполняющей его живым, дыханием природы.</p>
                     <NuxtLink to="/catalog" class="z-[1] px-4 py-2 rounded-xl mx-auto bg-[#569E0B] hover:bg-[#665E5E] transition-all duration-500">Перейти в каталог</NuxtLink>
@@ -63,7 +63,7 @@
     <div class="flex flex-col gap-6">
         <NuxtLink to="/catalog" class="text-3xl font-Comfortaa text-[#569E0B]/70">Наши новинки</NuxtLink>
         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
-           <Card v-for="n in 6"></Card>
+           <Card v-for="product in products.slice(0,4)" v-bind="product"></Card>
         </div>
     </div>
     <div class="flex flex-col gap-6">
@@ -97,4 +97,11 @@
 
 <script setup>
 
+    /* подключение БД */
+    const supabase = useSupabaseClient() 
+
+    const { data: products, error } = await supabase
+    .from('products')
+    .select('*')
+    .order('id', { ascending: false })    
 </script>

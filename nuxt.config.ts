@@ -6,12 +6,16 @@ export default defineNuxtConfig({
     "nuxt-icon",
     "@nuxtjs/google-fonts",
     "nuxt-swiper",
-    "@formkit/nuxt"
+    "@formkit/nuxt",
+    "@nuxtjs/supabase"
   ],
   googleFonts: {
     families: {
       'Comfortaa': true,
       'PT Sans': true
     }
+  },
+  supabase: {
+    redirect: false
   }
 })
