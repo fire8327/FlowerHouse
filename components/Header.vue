@@ -19,7 +19,7 @@
                     <NuxtLink to="/">
                         <Icon class="text-[28px] text-[#569E0B]/70" name="material-symbols:shopping-cart-rounded"/>
                     </NuxtLink>
-                    <NuxtLink to="/">
+                    <NuxtLink to="/auth">
                         <Icon class="text-[28px] text-[#569E0B]/70" name="material-symbols:account-circle"/>
                     </NuxtLink>
                 </div>
