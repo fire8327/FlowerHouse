@@ -1,7 +1,7 @@
 <template>
     <div class="flex flex-col gap-6">
         <button @click="isProductShow = true" class="overflow-hidden rounded-xl" v-if="props.type == 'product'">
-            <img :src="props.img" alt="" class="transition-all duration-500 hover:scale-125">
+            <img :src="props.img" alt="" class="transition-all duration-500 hover:scale-125 object-cover aspect-[7/10]">
         </button>
         <div class="overflow-hidden rounded-xl" v-else>
             <img :src="props.img" alt="" class="transition-all duration-500 hover:scale-125">
@@ -17,9 +17,9 @@
             <button class="w-3/5 px-4 py-2 text-center bg-[#569E0B] transition-all duration-500 hover:bg-[#665E5E] text-white rounded-xl">В корзину</button>
         </div>
     </div>
-    <div class="fixed inset-0 bg-white z-[7] flex items-center justify-center transition-all duration-500" :class="{'translate-y-full' : !isProductShow}" v-if="props.type == 'product'">
+    <div class="fixed inset-0 bg-white z-[7] flex items-center justify-center transition-all duration-500" :class="{'translate-y-[3000px]' : !isProductShow}" v-if="props.type == 'product'">
         <div class="flex items-center max-lg:flex-col gap-8 p-6 lg:w-2/3">
-            <img :src="props.img" alt="" class="rounded-xl max-lg:aspect-video max-lg:object-cover max-lg:object-bottom md:w-2/3 lg:w-1/2">
+            <img :src="props.img" alt="" class="rounded-xl max-lg:aspect-video lg:aspect-[7/10] object-cover max-lg:object-bottom md:w-2/3 lg:w-1/2">
             <div class="flex flex-col gap-6 lg:w-1/2">
                 <p class="text-2xl font-Comfortaa">{{ props.title }}</p>
                 <p class="text-xl font-semibold">{{ props.price.toLocaleString() }}₽</p>
