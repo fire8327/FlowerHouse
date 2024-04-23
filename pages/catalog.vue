@@ -15,9 +15,6 @@
             <p>Каталог</p>
         </div>
     </div>
-    <pre>
-        {{ filters }}
-    </pre>
     <div class="flex items-center lg:justify-between gap-6 max-lg:flex-col p-4 shadow-[0px_0px_13px_-7px_black] rounded-xl">
         <div class="flex items-center gap-6 max-lg:flex-col max-lg:w-full">
             <div class="flex items-center gap-2 max-lg:w-full">
