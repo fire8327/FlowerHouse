@@ -43,6 +43,8 @@
     const { data, error } = await supabase
     .from('products')
     .select('*')   
+    .order('title', { ascending: true })    
+
     const products = ref(data)
     
     /* управление select'ом */
