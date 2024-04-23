@@ -6,7 +6,7 @@
         <div class="overflow-hidden rounded-xl" v-else>
             <img :src="props.img" alt="" class="transition-all duration-500 hover:scale-125">
         </div>
-        <p class="text-2xl font-Comfortaa">{{ props.title }}</p>
+        <p class="text-2xl font-Comfortaa grow">{{ props.title }}</p>
         <p class="text-xl font-semibold">{{ props.price.toLocaleString() }}₽</p>
         <div class="flex items-center gap-2 text-lg">
             <div class="flex items-center justify-center gap-6 px-4 py-1.5 grow rounded-xl border border-[#665E5E]">
