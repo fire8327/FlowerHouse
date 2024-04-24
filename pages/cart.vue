@@ -16,16 +16,19 @@
         </div>
     </div>
     <div class="flex flex-col gap-6">
+        <p class="text-3xl font-Comfortaa text-[#569E0B]/70">Список товаров</p>
+    </div>
+    <div class="flex flex-col gap-6">
         <p class="text-3xl font-Comfortaa text-[#569E0B]/70">Оформление заказа</p>
         <FormKit type="form" :actions="false" messages-class="hidden" form-class="flex flex-col gap-4 w-full items-center md:w-2/3 lg:w-1/2 md:mx-auto">
-                <div class="flex items-start gap-2 w-full">
-                    <FormKit type="text" validation="required|number" messages-class="text-[#E9556D] font-Comfortaa" name="Номер карты" outer-class="max-md:w-full md:w-2/4" input-class="px-4 py-2 border border-[#569E0B]/70 rounded-xl focus:outline-none w-full" placeholder="Номер карты"/>
-                    <FormKit type="text" validation="required|number" messages-class="text-[#E9556D] font-Comfortaa" name="Срок действия" outer-class="max-md:w-full md:w-1/4" input-class="px-4 py-2 border border-[#569E0B]/70 rounded-xl focus:outline-none w-full" placeholder="YY/YY"/>
-                    <FormKit type="text" validation="required|number" messages-class="text-[#E9556D] font-Comfortaa" name="CVC" outer-class="max-md:w-full md:w-1/4" input-class="px-4 py-2 border border-[#569E0B]/70 rounded-xl focus:outline-none w-full" placeholder="CVC"/>
-                </div>
-                <FormKit type="textarea" validation="required" messages-class="text-[#E9556D] font-Comfortaa" name="Адрес доставки" outer-class="w-full" input-class="px-4 py-2 border border-[#569E0B]/70 rounded-xl focus:outline-none w-full" placeholder="Адрес доставки"/>
-                <button type="submit" class="px-4 py-2 bg-[#569E0B] text-white rounded-full shrink-0 w-[160px]">Оформить заказ</button>
-            </FormKit>
+            <div class="flex items-start gap-2 w-full">
+                <FormKit type="text" validation="required|number" messages-class="text-[#E9556D] font-Comfortaa" name="Номер карты" outer-class="max-md:w-full md:w-2/4" input-class="px-4 py-2 border border-[#569E0B]/70 rounded-xl focus:outline-none w-full" placeholder="Номер карты"/>
+                <FormKit type="text" validation="required|number" messages-class="text-[#E9556D] font-Comfortaa" name="Срок действия" outer-class="max-md:w-full md:w-1/4" input-class="px-4 py-2 border border-[#569E0B]/70 rounded-xl focus:outline-none w-full" placeholder="YY/YY"/>
+                <FormKit type="text" validation="required|number" messages-class="text-[#E9556D] font-Comfortaa" name="CVC" outer-class="max-md:w-full md:w-1/4" input-class="px-4 py-2 border border-[#569E0B]/70 rounded-xl focus:outline-none w-full" placeholder="CVC"/>
+            </div>
+            <FormKit type="textarea" validation="required" messages-class="text-[#E9556D] font-Comfortaa" name="Адрес доставки" outer-class="w-full" input-class="px-4 py-2 border border-[#569E0B]/70 rounded-xl focus:outline-none w-full" placeholder="Адрес доставки"/>
+            <button type="submit" class="px-4 py-2 bg-[#569E0B] text-white rounded-full shrink-0 w-[160px]">Оформить заказ</button>
+        </FormKit>
     </div>
 </template>
 
