@@ -11,7 +11,7 @@
                 <NuxtLink to="/contacts">Контакты</NuxtLink>
                 <NuxtLink to="/" v-if="role == 'admin'">Админ панель</NuxtLink>
                 <div class="flex items-center gap-4">
-                    <NuxtLink to="/">
+                    <NuxtLink to="/" v-if="authenticated">
                         <Icon class="text-[28px] text-[#569E0B]/70" name="material-symbols:shopping-cart-rounded"/>
                     </NuxtLink>
                     <NuxtLink v-if="role == 'admin'" :to="authenticated ? '/admin' : '/auth'">

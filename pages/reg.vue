@@ -71,7 +71,13 @@
                     messageTitle.value = null
                 }, 3000) 
                 router.push('/auth')
+            } else {
+                messageTitle.value = 'Произошла ошибка!', messageType.value = false 
+                setTimeout(() => {
+                    messageTitle.value = null
+                }, 3000) 
             }
+
         }
     }
 </script>
