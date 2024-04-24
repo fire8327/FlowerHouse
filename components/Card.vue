@@ -57,6 +57,7 @@
 
     /* props */
     const props = defineProps({
+        id: Number,
         type: String,
         title: String,
         price: Number,
