@@ -22,6 +22,7 @@
                 <FormKit type="text" v-model="filters.maxPrice" name="До" outer-class="w-1/2" input-class="px-4 py-2 border border-[#569E0B]/70 rounded-r-xl focus:outline-none w-full" placeholder="До"/>
             </div>
             <FormKit v-model="filters.products" type="select" :options="selectOptions" outer-class="max-lg:w-full" input-class="px-4 py-2 border border-[#569E0B]/70 rounded-xl focus:outline-none w-full bg-white"/>
+            <FormKit type="text" v-model="filters.title" name="Название" outer-class="max-lg:w-full" input-class="px-4 py-2 border border-[#569E0B]/70 rounded-xl focus:outline-none w-full" placeholder="Название"/>
         </div>
         <div class="flex items-center gap-4">
             <button type="button" @click="filterProducts" class="px-4 py-2 w-fit bg-[#569E0B] text-white rounded-xl">Применить</button>
@@ -43,7 +44,8 @@
     .eq('type','product')
     .order('title', { ascending: true })    
 
-    const products = ref(data)
+    const products = ref(data)   
+
     
     /* управление select'ом */
     const selectOptions = ref(['Все'])
@@ -57,6 +59,7 @@
     const filters = ref({
         minPrice: "",
         maxPrice: "",
+        title: "",
         products: 'Все'
     })
 
@@ -74,6 +77,9 @@
             if (el.productType != filters.value.products && filters.value.products != 'Все') {
                 return false
             }
+            if (el.title.toLowerCase().indexOf(filters.value.title) == -1 && filters.value.title) {
+                return false
+            }
             return true
         })     
         products.value = filter
@@ -83,6 +89,7 @@
         products.value = data
         filters.value.minPrice = ""
         filters.value.maxPrice = ""
+        filters.value.title = ""
         filters.value.products = "Все"
     }
 </script>

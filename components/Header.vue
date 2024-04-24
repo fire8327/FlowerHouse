@@ -5,12 +5,6 @@
                 <img src="/images/header/logo.png" alt="" class="w-36"> 
             </NuxtLink>
             <nav class="flex items-center gap-8 text-xl bg-white max-lg:absolute max-lg:flex-col max-lg:w-full max-lg:py-8 max-lg:left-0 z-[4] duration-500 transition-all" :class="isMenuShow ? 'max-lg:top-[calc(100%+1.5px)]' : 'max-lg:top-0 max-lg:-translate-y-full'">
-                <form class="relative">
-                    <input type="text" class="w-64 rounded-full border border-[#569E0B]/70 py-0.5 pl-4 pr-10 focus:outline-none">
-                    <button class="absolute top-1/2 -translate-y-1/2 right-2">
-                        <Icon class="text-[28px] text-[#569E0B]/70" name="ic:baseline-search"/>
-                    </button>
-                </form>
                 <NuxtLink to="/">Главная</NuxtLink>
                 <NuxtLink to="/catalog">Каталог</NuxtLink>
                 <NuxtLink to="/services">Услуги</NuxtLink>
