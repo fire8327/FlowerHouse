@@ -19,7 +19,6 @@
         <NuxtLink to="/auth" class="mx-auto px-4 py-2 border border-[#569E0B] text-[#569E0B] rounded-full w-[160px] text-center">Вход</NuxtLink>
         <button type="button" @click="messageTitle = null" class="fixed top-10 right-10 z-[11] cursor-pointer flex items-center gap-4 px-6 py-2 rounded-2xl w-fit bg-white shadow-[0px_0px_13px_-7px_black]" :class="messageType ? ' text-[#569E0B]/70' : 'text-red-500'" v-if="messageTitle">
             <span>{{messageTitle}}</span>
-            <Icon name="material-symbols:close-rounded" class="text-xl"/>
         </button>
     </FormKit>
 </template>
