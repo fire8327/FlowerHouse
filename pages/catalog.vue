@@ -40,6 +40,7 @@
     const { data, error } = await supabase
     .from('products')
     .select('*')   
+    .eq('type','product')
     .order('title', { ascending: true })    
 
     const products = ref(data)

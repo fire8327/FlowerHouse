@@ -105,6 +105,7 @@
     const { data: products, error } = await supabase
     .from('products')
     .select('*')
+    .eq('type','product')
     .order('id', { ascending: false })    
 
 
