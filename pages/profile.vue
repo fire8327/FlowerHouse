@@ -37,6 +37,12 @@
         <p class="text-3xl font-Comfortaa text-[#569E0B]/70">Выход из аккаунта</p>
         <button type="button" @click="logout" class="px-4 py-2 bg-[#569E0B] text-white rounded-full w-[160px] text-center">Выход</button>
     </div>
+    <div class="flex flex-col gap-6">
+        <p class="text-3xl font-Comfortaa text-[#569E0B]/70">Список заказов</p>
+    </div>
+    <div class="flex flex-col gap-6">
+        <p class="text-3xl font-Comfortaa text-[#569E0B]/70">Заявки на аренду</p>
+    </div>
 </template>
 
 <script setup>
