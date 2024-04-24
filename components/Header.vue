@@ -8,7 +8,7 @@
                 <NuxtLink to="/">Главная</NuxtLink>
                 <NuxtLink to="/catalog">Каталог</NuxtLink>
                 <NuxtLink to="/services">Услуги</NuxtLink>
-                <NuxtLink to="/">Контакты</NuxtLink>
+                <NuxtLink to="/contacts">Контакты</NuxtLink>
                 <NuxtLink to="/" v-if="role == 'admin'">Админ панель</NuxtLink>
                 <div class="flex items-center gap-4">
                     <NuxtLink to="/">
