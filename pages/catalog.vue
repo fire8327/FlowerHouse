@@ -77,7 +77,7 @@
             if (el.productType != filters.value.products && filters.value.products != 'Все') {
                 return false
             }
-            if (el.title.toLowerCase().indexOf(filters.value.title) == -1 && filters.value.title) {
+            if (el.title.toLowerCase().indexOf(filters.value.title.toLowerCase()) == -1 && filters.value.title) {
                 return false
             }
             return true
