@@ -19,7 +19,10 @@
                     <NuxtLink to="/">
                         <Icon class="text-[28px] text-[#569E0B]/70" name="material-symbols:shopping-cart-rounded"/>
                     </NuxtLink>
-                    <NuxtLink to="/auth">
+                    <NuxtLink v-if="role == 'admin'" :to="authenticated ? '/admin' : '/auth'">
+                        <Icon class="text-[28px] text-[#569E0B]/70" name="material-symbols:account-circle"/>
+                    </NuxtLink>
+                    <NuxtLink v-else :to="authenticated ? '/profile' : '/auth'">
                         <Icon class="text-[28px] text-[#569E0B]/70" name="material-symbols:account-circle"/>
                     </NuxtLink>
                 </div>
@@ -36,9 +39,14 @@
     /* открытие мобильного меню */
     const isMenuShow = ref(false) 
 
+
     /* закрытие мобильного меню */
     const nuxtApp = useNuxtApp()
     nuxtApp.hook('page:start', () => {
         isMenuShow.value = false
     })
+    
+
+    /* проверка входа */
+    const { authenticated, role } = storeToRefs(useUserStore())
 </script>

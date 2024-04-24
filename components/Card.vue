@@ -8,7 +8,7 @@
         </div>
         <p class="text-2xl font-Comfortaa grow">{{ props.title }}</p>
         <p class="text-xl font-semibold">{{ props.price.toLocaleString() }}₽</p>
-        <div class="flex items-center gap-2 text-lg">
+        <div class="flex items-center gap-2 text-lg" v-if="authenticated">
             <div class="flex items-center justify-center gap-6 px-4 py-1.5 grow rounded-xl border border-[#665E5E]">
                 <button class="text-2xl" @click="minusCount">-</button>
                 <p>{{ cardCount }}</p>
@@ -23,7 +23,7 @@
             <div class="flex flex-col gap-6 lg:w-1/2">
                 <p class="text-2xl font-Comfortaa">{{ props.title }}</p>
                 <p class="text-xl font-semibold">{{ props.price.toLocaleString() }}₽</p>
-                <div class="flex items-center gap-2 text-lg">
+                <div class="flex items-center gap-2 text-lg" v-if="authenticated">
                     <div class="flex items-center justify-center gap-6 px-4 py-1.5 grow rounded-xl border border-[#665E5E]">
                         <button class="text-2xl" @click="minusCount">-</button>
                         <p>{{ cardCount }}</p>
@@ -66,4 +66,8 @@
 
     /* товар подробно */
     const isProductShow = ref(false)
+
+
+    /* проверка входа */
+    const { authenticated } = storeToRefs(useUserStore())
 </script>

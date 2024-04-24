@@ -33,13 +33,17 @@
         </p>
         <div class="flex flex-col gap-4 items-center md:w-2/3 lg:w-1/2 mx-auto">
             <img src="/images/services/rent.webp" alt="" class="aspect-video object-cover rounded-xl">
-            <FormKit type="form" :actions="false" messages-class="hidden" form-class="flex max-md:flex-col max-md:items-center items-start gap-4">
-                <div class="flex items-start gap-2 max-md:w-full">
-                    <FormKit type="date" validation="required" messages-class="text-[#E9556D] font-Comfortaa" name="Начальная дата" outer-class="w-1/2" input-class="px-4 py-2 border border-[#569E0B]/70 rounded-l-xl focus:outline-none w-full"/>
-                    <FormKit type="date" validation="required" messages-class="text-[#E9556D] font-Comfortaa" name="Конечная дата" outer-class="w-1/2" input-class="px-4 py-2 border border-[#569E0B]/70 rounded-r-xl focus:outline-none w-full"/>
+            <FormKit type="form" :actions="false" messages-class="hidden" form-class="flex flex-col gap-4 w-full items-center">
+                <div class="flex items-start gap-2 w-full">
+                    <FormKit type="date" validation="required" messages-class="text-[#E9556D] font-Comfortaa" name="Начальная дата" outer-class="max-md:w-full md:w-1/2" input-class="px-4 py-2 border border-[#569E0B]/70 rounded-l-xl focus:outline-none w-full"/>
+                    <FormKit type="date" validation="required" messages-class="text-[#E9556D] font-Comfortaa" name="Конечная дата" outer-class="max-md:w-full md:w-1/2" input-class="px-4 py-2 border border-[#569E0B]/70 rounded-r-xl focus:outline-none w-full"/>
                 </div>
-                <FormKit type="text" validation="required|number" messages-class="text-[#E9556D] font-Comfortaa" name="Количество растений" outer-class="max-md:w-full" input-class="px-4 py-2 border border-[#569E0B]/70 rounded-xl focus:outline-none w-full" placeholder="Количество растений"/>
-                <button type="submit" class="px-4 py-2 bg-[#569E0B] text-white rounded-xl shrink-0">В корзину</button>
+                <div class="flex items-start gap-2 w-full">
+                    <FormKit type="text" validation="required|number" messages-class="text-[#E9556D] font-Comfortaa" name="Количество растений" outer-class="max-md:w-full md:w-1/3" input-class="px-4 py-2 border border-[#569E0B]/70 rounded-xl focus:outline-none w-full" placeholder="Количество"/>
+                    <FormKit type="text" validation="required|number|length:11" messages-class="text-[#E9556D] font-Comfortaa" name="Номер телефона" outer-class="max-md:w-full md:w-2/3" input-class="px-4 py-2 border border-[#569E0B]/70 rounded-xl focus:outline-none w-full" placeholder="Номер телефона"/>
+                </div>
+                <FormKit type="textarea" validation="required" messages-class="text-[#E9556D] font-Comfortaa" name="Адрес доставки" outer-class="w-full" input-class="px-4 py-2 border border-[#569E0B]/70 rounded-xl focus:outline-none w-full" placeholder="Адрес доставки"/>
+                <button type="submit" class="px-4 py-2 bg-[#569E0B] text-white rounded-full shrink-0 w-[160px]">Заказать услугу</button>
             </FormKit>
         </div>
     </div>
