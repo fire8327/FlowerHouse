@@ -17,7 +17,7 @@
                 <div class="flex flex-col gap-4">
                     <FormKit type="text" v-model="feedbackForm.name" name="Имя" validation="required" messages-class="text-[#E9556D] font-Comfortaa" input-class="w-full rounded-xl bg-transparent focus:outline-none border border-[#569E0B] py-2 px-4" placeholder="Ваше имя"></FormKit>
                     <FormKit type="text" v-model="feedbackForm.email" name="Почта" validation="required|email" messages-class="text-[#E9556D] font-Comfortaa" input-class="w-full rounded-xl bg-transparent focus:outline-none border border-[#569E0B] py-2 px-4" placeholder="Ваша почта"></FormKit>
-                    <FormKit type="text" v-model="feedbackForm.phone" name="Номер телефона" validation="required|number|length:11" messages-class="text-[#E9556D] font-Comfortaa" input-class="w-full rounded-xl bg-transparent focus:outline-none border border-[#569E0B] py-2 px-4" placeholder="Ваш номер телефона"></FormKit>
+                    <FormKit type="text" v-model="feedbackForm.phone" name="Номер телефона" validation="required" messages-class="text-[#E9556D] font-Comfortaa" input-class="w-full rounded-xl bg-transparent focus:outline-none border border-[#569E0B] py-2 px-4" placeholder="Ваш номер телефона"></FormKit>
                 </div>
                 <button type="submit" class="px-4 py-1.5 rounded-xl bg-[#569E0B] text-white transition-all duration-500 hover:bg-[#665E5E] text-lg">Отправить</button>
             </FormKit>
@@ -66,6 +66,6 @@
         feedbackForm.value.phone = ""
         setTimeout(() => {
             messageTitle.value = null
-        }, 3000)
+        }, 3000);
     }
 </script>
