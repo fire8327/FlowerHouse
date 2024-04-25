@@ -75,7 +75,7 @@
     const { messageTitle, messageType } = storeToRefs(useMessagesStore())
     
 
-    /* форма на аренду */
+    /* форма на аренду */ 
     const rentForm = ref({
         dateFrom: "",
         dateTo: "",
@@ -117,6 +117,6 @@
             messageTitle.value = null
         }, 3000)
 
-        
+
     }
 </script>
