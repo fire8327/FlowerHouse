@@ -17,7 +17,7 @@
     </div>
     <div class="flex flex-col gap-6 w-full">
         <p class="text-3xl font-Comfortaa text-[#569E0B]/70">Список товаров</p>
-        <CartCard v-for="n in 5"></CartCard>
+        <CartCard v-for="cart in carts" v-bind="cart"></CartCard>
         <p class="text-xl font-semibold"><span class="font-Comfortaa text-[#569E0B]/70">Итоговая цена: </span>Цена ₽</p>
     </div>
     <div class="flex flex-col gap-6">
@@ -35,5 +35,15 @@
 </template>
 
 <script setup>
+    /* проверка входа */
+    const { id } = storeToRefs(useUserStore())
 
+
+    /* подключение к БД */
+    const supabase = useSupabaseClient()     
+    const { data: carts, error } = await supabase
+    .from('cart')
+    .select(`*, products (*)`)
+    .eq('status', 'В корзине')
+    .eq('userId', `${id.value}`)
 </script>
