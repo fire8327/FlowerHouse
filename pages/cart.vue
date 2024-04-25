@@ -83,32 +83,31 @@
             checkNumbers()
         }
     }
+    checkNumbers()
 
 
     /* оформление заказа */
     const address = ref()
     const router = useRouter()
     const makeOrder = async () => {
-        if(checkNumbers()) {
-            const { data, error } = await supabase
-            .from('cart')
-            .update({ status: 'Новый', address: address.value, orderId: orderId.value})
-            .eq('status', 'В корзине')
-            .eq('userId', `${id.value}`)
-            .select() 
+        const { data, error } = await supabase
+        .from('cart')
+        .update({ status: 'Новый', address: address.value, orderId: orderId.value})
+        .eq('status', 'В корзине')
+        .eq('userId', `${id.value}`)
+        .select() 
 
-            if(data) {
-                messageTitle.value = 'Заказ успешно оформлен!', messageType.value = true
-                setTimeout(() => {
-                    messageTitle.value = null
-                }, 3000)
-                router.push("/")
-            } else {
-                messageTitle.value = 'Произошла ошибка!', messageType.value = false
-                setTimeout(() => {
-                    messageTitle.value = null
-                }, 3000) 
-            }    
-        }           
+        if(data) {
+            messageTitle.value = 'Заказ успешно оформлен!', messageType.value = true
+            setTimeout(() => {
+                messageTitle.value = null
+            }, 3000)
+            router.push("/")
+        } else {
+            messageTitle.value = 'Произошла ошибка!', messageType.value = false
+            setTimeout(() => {
+                messageTitle.value = null
+            }, 3000) 
+        }       
     } 
 </script>
