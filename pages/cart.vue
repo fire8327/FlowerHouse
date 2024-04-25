@@ -18,17 +18,17 @@
     <div class="flex flex-col gap-6 w-full">
         <p class="text-3xl font-Comfortaa text-[#569E0B]/70">Список товаров</p>
         <CartCard v-for="cart in carts" v-bind="cart"></CartCard>
-        <p class="text-xl font-semibold"><span class="font-Comfortaa text-[#569E0B]/70">Итоговая цена: </span>Цена ₽</p>
+        <p class="text-xl font-semibold"><span class="font-Comfortaa text-[#569E0B]/70">Итоговая цена: </span>{{ sum.toLocaleString() }} ₽</p>
     </div>
     <div class="flex flex-col gap-6">
         <p class="text-3xl font-Comfortaa text-[#569E0B]/70">Оформление заказа</p>
-        <FormKit type="form" :actions="false" messages-class="hidden" form-class="flex flex-col gap-4 w-full items-center md:w-2/3 lg:w-1/2 md:mx-auto">
+        <FormKit type="form" @submit="makeOrder" :actions="false" messages-class="hidden" form-class="flex flex-col gap-4 w-full items-center md:w-2/3 lg:w-1/2 md:mx-auto">
             <div class="flex items-start gap-2 w-full">
                 <FormKit type="text" validation="required|number" messages-class="text-[#E9556D] font-Comfortaa" name="Номер карты" outer-class="max-md:w-full md:w-2/4" input-class="px-4 py-2 border border-[#569E0B]/70 rounded-xl focus:outline-none w-full" placeholder="Номер карты"/>
                 <FormKit type="text" validation="required|number" messages-class="text-[#E9556D] font-Comfortaa" name="Срок действия" outer-class="max-md:w-full md:w-1/4" input-class="px-4 py-2 border border-[#569E0B]/70 rounded-xl focus:outline-none w-full" placeholder="YY/YY"/>
                 <FormKit type="text" validation="required|number" messages-class="text-[#E9556D] font-Comfortaa" name="CVC" outer-class="max-md:w-full md:w-1/4" input-class="px-4 py-2 border border-[#569E0B]/70 rounded-xl focus:outline-none w-full" placeholder="CVC"/>
             </div>
-            <FormKit type="textarea" validation="required" messages-class="text-[#E9556D] font-Comfortaa" name="Адрес доставки" outer-class="w-full" input-class="px-4 py-2 border border-[#569E0B]/70 rounded-xl focus:outline-none w-full" placeholder="Адрес доставки"/>
+            <FormKit type="textarea" v-model="address" validation="required" messages-class="text-[#E9556D] font-Comfortaa" name="Адрес доставки" outer-class="w-full" input-class="px-4 py-2 border border-[#569E0B]/70 rounded-xl focus:outline-none w-full" placeholder="Адрес доставки"/>
             <button type="submit" class="px-4 py-2 bg-[#569E0B] text-white rounded-full shrink-0 w-[160px]">Оформить заказ</button>
         </FormKit>
     </div>
@@ -46,4 +46,62 @@
     .select(`*, products (*)`)
     .eq('status', 'В корзине')
     .eq('userId', `${id.value}`)
+
+
+    /* итоговая сумма */
+    const sum = ref(0)
+    carts.forEach(el => {
+        sum.value += el.count*el.products.price 
+    })
+    
+
+    /* проверка номера */
+    const orderNumbers = []
+    const { data: numbers } = await supabase
+    .from('cart')
+    .select(`*`)
+    numbers.forEach(el => {
+        if(orderNumbers.indexOf(el.productType) === -1) {
+            orderNumbers.push(el.productType)
+        }
+    })
+
+    const orderId = ref() 
+    const checkNumbers = () => {
+        const randomNumber = Math.floor(300 + Math.random() * (30000 + 1 - 300))
+        if (orderNumbers.every((el)=> el != randomNumber)) {
+            orderId.value = randomNumber
+            return true
+        } else {
+            checkNumbers()
+        }
+    }
+
+
+    /* оформление заказа */
+    const address = ref()
+    const router = useRouter()
+    const makeOrder = async () => {
+        if(checkNumbers()) {
+            const { data, error } = await supabase
+            .from('cart')
+            .update({ status: 'Новый', address: address.value, orderId: orderId.value})
+            .eq('status', 'В корзине')
+            .eq('userId', `${id.value}`)
+            .select() 
+
+            if(data) {
+                messageTitle.value = 'Заказ успешно оформлен!', messageType.value = true
+                setTimeout(() => {
+                    messageTitle.value = null
+                }, 3000)
+                router.push("/")
+            } else {
+                messageTitle.value = 'Произошла ошибка!', messageType.value = false
+                setTimeout(() => {
+                    messageTitle.value = null
+                }, 3000) 
+            }    
+        }           
+    } 
 </script>
