@@ -106,17 +106,25 @@
             method:'post'
         })
 
+        const { data:rent } = await supabase
+        .from('rent')
+        .insert([
+            { userId: `${id.value}`,  dateFrom: `${rentForm.value.dateFrom}`, dateTo: `${rentForm.value.dateTo}`, count: `${rentForm.value.count}`, phone: `${rentForm.value.phone}`, address: `${rentForm.value.address}`}
+        ])
+        .select()
+
         if (error.value) return messageTitle.value = 'При отправке произошла ошибка!', messageType.value = false
-        messageTitle.value = 'Успешная отправка!', messageType.value = true 
-        rentForm.value.dateFrom = ""
-        rentForm.value.dateTo = ""
-        rentForm.value.count = ""
-        rentForm.value.phone = ""
-        rentForm.value.address = ""
-        setTimeout(() => {
-            messageTitle.value = null
-        }, 3000)
 
-
+        if(rent) {
+            messageTitle.value = 'Успешная отправка!', messageType.value = true 
+            rentForm.value.dateFrom = ""
+            rentForm.value.dateTo = ""
+            rentForm.value.count = ""
+            rentForm.value.phone = ""
+            rentForm.value.address = ""
+            setTimeout(() => {
+                messageTitle.value = null
+            }, 3000)
+        }        
     }
 </script>
