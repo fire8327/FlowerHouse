@@ -15,7 +15,7 @@
                 <p>{{ cardCount }}</p>
                 <button class="text-2xl" @click="plusCount">+</button>
             </div>    
-            <button class="w-3/5 px-4 py-2 text-center bg-[#569E0B] transition-all duration-500 hover:bg-[#665E5E] text-white rounded-xl">В корзину</button>
+            <button @click="addCart" class="w-3/5 px-4 py-2 text-center bg-[#569E0B] transition-all duration-500 hover:bg-[#665E5E] text-white rounded-xl">В корзину</button>
         </div>
     </div>
     <div class="fixed inset-0 bg-white z-[7] flex items-center justify-center transition-all duration-500" :class="{'translate-y-[3000px]' : !isProductShow}" v-if="props.type == 'product'">
@@ -30,7 +30,7 @@
                         <p>{{ cardCount }}</p>
                         <button class="text-2xl" @click="plusCount">+</button>
                     </div>    
-                    <button class="w-3/5 px-4 py-2 text-center bg-[#569E0B] transition-all duration-500 hover:bg-[#665E5E] text-white rounded-xl">В корзину</button>
+                    <button @click="addCart" class="w-3/5 px-4 py-2 text-center bg-[#569E0B] transition-all duration-500 hover:bg-[#665E5E] text-white rounded-xl">В корзину</button>
                 </div>
                 <p class="text-lg">{{ props.desc }}</p>
             </div>
@@ -62,7 +62,9 @@
         title: String,
         price: Number,
         desc: String,
-        img: String
+        img: String,
+        productType: String,
+        created_at: String
     })
 
 
@@ -71,5 +73,58 @@
 
 
     /* проверка входа */
-    const { authenticated } = storeToRefs(useUserStore())
+    const { authenticated, id } = storeToRefs(useUserStore())
+
+
+    /* создание сообщений */
+    const { messageTitle, messageType } = storeToRefs(useMessagesStore())
+
+
+    /* подключение к БД и добавление в корзину */
+    const supabase = useSupabaseClient()     
+
+    const addCart = async () => {
+        const { data: carts, error } = await supabase
+        .from('cart')
+        .select(`*, products (*)`)
+        .eq('status', 'В корзине')
+        .eq('userId', `${id.value}`)
+        .eq('productId', `${props.id}`)
+
+        console.log(carts)
+
+        if(carts.length>0) {
+            const { data, error } = await supabase
+            .from('cart')
+            .update({ count: `${Number(carts[0].count)+cardCount.value}` })
+            .eq('status', 'В корзине')
+            .eq('userId', `${id.value}`)
+            .eq('productId', `${props.id}`)
+            .select()      
+        
+            messageTitle.value = 'Количество товара обновлено!', messageType.value = true
+            setTimeout(() => {
+                messageTitle.value = null
+            }, 3000)
+        } else {            
+            const { data, error } = await supabase
+            .from('cart')
+            .insert([
+                { userId: `${id.value}`, productId: `${props.id}`, status: 'В корзине', count: `${cardCount.value}` },
+            ])
+            .select()       
+            
+            if(data) {
+                messageTitle.value = 'Товар добавлен в корзину!', messageType.value = true
+                setTimeout(() => {
+                    messageTitle.value = null
+                }, 3000)
+            } else {
+                messageTitle.value = 'Произошла ошибка!', messageType.value = false
+                setTimeout(() => {
+                    messageTitle.value = null
+                }, 3000) 
+            }            
+        }
+    }
 </script>

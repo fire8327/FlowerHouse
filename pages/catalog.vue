@@ -32,6 +32,9 @@
     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
        <Card v-for="product in products" v-bind="product"></Card>
     </div>
+    <button type="button" @click="messageTitle = null" class="fixed top-10 right-10 z-[11] cursor-pointer flex items-center gap-4 px-6 py-2 rounded-2xl w-fit bg-white shadow-[0px_0px_13px_-7px_black]" :class="messageType ? ' text-[#569E0B]/70' : 'text-red-500'" v-if="messageTitle">
+        <span>{{messageTitle}}</span>
+    </button>
 </template>
 
 <script setup>
@@ -92,4 +95,8 @@
         filters.value.title = ""
         filters.value.products = "Все"
     }
+
+
+    /* создание сообщений */
+    const { messageTitle, messageType } = storeToRefs(useMessagesStore())
 </script>
