@@ -32,6 +32,9 @@
             <button type="submit" class="px-4 py-2 bg-[#569E0B] text-white rounded-full shrink-0 w-[160px]">Оформить заказ</button>
         </FormKit>
     </div>
+    <button type="button" @click="messageTitle = null" class="fixed top-10 right-10 z-[11] cursor-pointer flex items-center gap-4 px-6 py-2 rounded-2xl w-fit bg-white shadow-[0px_0px_13px_-7px_black]" :class="messageType ? ' text-[#569E0B]/70' : 'text-red-500'" v-if="messageTitle">
+        <span>{{messageTitle}}</span>
+    </button>
 </template>
 
 <script setup>
@@ -54,6 +57,10 @@
         sum.value += el.count*el.products.price 
     })
     
+
+    /* создание сообщений */
+    const { messageTitle, messageType } = storeToRefs(useMessagesStore())
+
 
     /* проверка номера */
     const orderNumbers = []
