@@ -18,9 +18,9 @@
     <div class="flex flex-col gap-6 w-full">
         <p class="text-3xl font-Comfortaa text-[#569E0B]/70">Список товаров</p>
         <CartCard v-for="cart in carts" v-bind="cart"></CartCard>
-        <p class="text-xl font-semibold"><span class="font-Comfortaa text-[#569E0B]/70">Итоговая цена: </span>{{ sum.toLocaleString() }} ₽</p>
+        <p class="text-xl font-semibold" v-if="sum"><span class="font-Comfortaa text-[#569E0B]/70">Итоговая цена: </span>{{ sum.toLocaleString() }} ₽</p>
     </div>
-    <div class="flex flex-col gap-6">
+    <div class="flex flex-col gap-6" v-if="carts.length">
         <p class="text-3xl font-Comfortaa text-[#569E0B]/70">Оформление заказа</p>
         <FormKit type="form" @submit="makeOrder" :actions="false" messages-class="hidden" form-class="flex flex-col gap-4 w-full items-center md:w-2/3 lg:w-1/2 md:mx-auto">
             <div class="flex items-start gap-2 w-full">
