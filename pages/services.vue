@@ -109,7 +109,7 @@
         const { data:rent } = await supabase
         .from('rent')
         .insert([
-            { userId: `${id.value}`,  dateFrom: `${rentForm.value.dateFrom}`, dateTo: `${rentForm.value.dateTo}`, count: `${rentForm.value.count}`, phone: `${rentForm.value.phone}`, address: `${rentForm.value.address}`}
+            { userId: `${id.value}`,  dateFrom: `${rentForm.value.dateFrom}`, dateTo: `${rentForm.value.dateTo}`, count: `${rentForm.value.count}`, phone: `${rentForm.value.phone}`, address: `${rentForm.value.address}`, status: 'Новый'}
         ])
         .select()
 

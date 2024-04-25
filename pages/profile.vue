@@ -39,9 +39,28 @@
     </div>
     <div class="flex flex-col gap-6">
         <p class="text-3xl font-Comfortaa text-[#569E0B]/70">Список заказов</p>
+        <div class="flex flex-col gap-8 text-lg rounded-xl border border-[#569E0B]/70 p-4 relative lg:w-1/2" v-for="orderNumber in orderNumbers">
+            <!-- сделать цикл (номера скомпанованных заказов), использовать карточки для фильтрации даных (через пропсы) -->
+        </div>
     </div>
     <div class="flex flex-col gap-6">
         <p class="text-3xl font-Comfortaa text-[#569E0B]/70">Заявки на аренду</p>
+        <div class="flex flex-col gap-4 text-lg rounded-xl border border-[#569E0B]/70 p-4 relative w-fit" v-for="rent in rents">
+            <p><span class="font-Comfortaa">Номер заказа:</span> <span class="font-bold">{{ rent.id }}</span></p>
+            <div class="flex items-start max-md:flex-col gap-4 w-full">
+                <p><span class="font-Comfortaa">Начальная дата:</span> <span class="font-bold">{{ rent.dateFrom }}</span></p>
+                <p><span class="font-Comfortaa">Конечная дата:</span> <span class="font-bold">{{ rent.dateTo }}</span></p>
+            </div>
+            <p><span class="font-Comfortaa">Количество растений:</span> <span class="font-bold">{{ rent.count }}</span></p>
+            <div class="flex items-start max-md:flex-col gap-4 w-full">
+                <p><span class="font-Comfortaa">Телефон:</span> <span class="font-bold">{{ rent.phone }}</span></p>
+                <p><span class="font-Comfortaa">Адрес:</span> <span class="font-bold">{{ rent.address }}</span></p>
+            </div>
+            <p><span class="font-Comfortaa">Статус заказа:</span> <span class="font-bold">{{ rent.status }}</span></p>
+            <button v-if="rent.status == 'Новая'" @click="deleteRent(rent.id)" class="absolute top-4 right-4 text-red-500">
+                <Icon class="text-3xl" name="ic:baseline-close"/>
+            </button>
+        </div>
     </div>
 </template>
 
@@ -105,4 +124,46 @@
         }, 3000)
         router.push("/")
     }
+
+
+    /* заявка на аренду */
+    const { data: rents, error:rentError } = await supabase
+    .from('rent')
+    .select('*')
+
+    const deleteRent = async (rentId) => {
+        const { data, error } = await supabase
+        .from('rent')
+        .update({ status: 'Отменена'})
+        .eq('id', `${rentId}`)
+        .eq('status', `Новая`)
+        .select()
+          
+        if(data) {
+            console.log(data[0])
+            messageTitle.value = 'Заявка отменена!', messageType.value = true 
+            setTimeout(() => {
+                messageTitle.value = null
+            }, 3000) 
+        } else {
+            messageTitle.value = 'Произошла ошибка!', messageType.value = false 
+            setTimeout(() => {
+                messageTitle.value = null
+            }, 3000) 
+        }
+    }  
+
+
+    /* список заказов и проверка номеров */ 
+    const orderNumbers = []
+    const { data: carts } = await supabase
+    .from('cart')
+    .select(`*, products (*)`)
+    .eq('status','Новый')
+    .eq('userId',`${id.value}`)
+    carts.forEach(el => {
+        if(orderNumbers.indexOf(el.orderId) === -1) {
+            orderNumbers.push(el.orderId)
+        }
+    })
 </script>
