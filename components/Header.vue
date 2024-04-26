@@ -9,6 +9,7 @@
                 <NuxtLink to="/catalog">Каталог</NuxtLink>
                 <NuxtLink to="/services">Услуги</NuxtLink>
                 <NuxtLink to="/contacts">Контакты</NuxtLink>
+                <NuxtLink to="/warranty">Гарантия</NuxtLink>
                 <NuxtLink to="/admin" v-if="role == 'admin'">Админ панель</NuxtLink>
                 <div class="flex items-center gap-4">
                     <NuxtLink to="/cart" v-if="authenticated">
