@@ -14,10 +14,7 @@
                     <NuxtLink to="/cart" v-if="authenticated">
                         <Icon class="text-[28px] text-[#569E0B]/70" name="material-symbols:shopping-cart-rounded"/>
                     </NuxtLink>
-                    <NuxtLink v-if="role == 'admin'" :to="authenticated ? '/admin' : '/auth'">
-                        <Icon class="text-[28px] text-[#569E0B]/70" name="material-symbols:account-circle"/>
-                    </NuxtLink>
-                    <NuxtLink v-else :to="authenticated ? '/profile' : '/auth'">
+                    <NuxtLink :to="authenticated ? '/profile' : '/auth'">
                         <Icon class="text-[28px] text-[#569E0B]/70" name="material-symbols:account-circle"/>
                     </NuxtLink>
                 </div>

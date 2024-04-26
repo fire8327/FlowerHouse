@@ -186,7 +186,7 @@
         if(orderNumbers.indexOf(el.orderId) === -1) {
             orderNumbers.push(el.orderId)
         }
-    })
+    })    
 
     const ordersArray = ref([])
     const sums = ref([])
