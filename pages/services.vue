@@ -33,8 +33,8 @@
         </p>
         <div class="flex flex-col gap-4 items-center md:w-2/3 lg:w-1/2 mx-auto">
             <img src="/images/services/rent.webp" alt="" class="aspect-video object-cover rounded-xl">
-            <p class="text-sm text-center" v-if="!authenticated">Для заказа услуги войдите в аккаунт</p>
-            <FormKit @submit="submitRent" type="form" :actions="false" messages-class="hidden" form-class="flex flex-col gap-4 w-full items-center" v-if="authenticated">
+            <p class="text-sm text-center" v-if="!authenticated || role != 'user'">Для заказа услуги войдите в аккаунт</p>
+            <FormKit @submit="submitRent" type="form" :actions="false" messages-class="hidden" form-class="flex flex-col gap-4 w-full items-center" v-if="authenticated && role == 'user'">
                 <div class="flex items-start gap-2 w-full">
                     <FormKit type="date" v-model="rentForm.dateFrom" validation="required" messages-class="text-[#E9556D] font-Comfortaa" name="Начальная дата" outer-class="max-md:w-full md:w-1/2" input-class="px-4 py-2 border border-[#569E0B]/70 rounded-l-xl focus:outline-none w-full"/>
                     <FormKit type="date" v-model="rentForm.dateTo" validation="required" messages-class="text-[#E9556D] font-Comfortaa" name="Конечная дата" outer-class="max-md:w-full md:w-1/2" input-class="px-4 py-2 border border-[#569E0B]/70 rounded-r-xl focus:outline-none w-full"/>

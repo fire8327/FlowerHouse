@@ -9,7 +9,7 @@
             <p class="text-lg" v-if="props.type == 'service'">{{ props.desc }}</p>
         </div>
         <p class="text-xl font-semibold">{{ props.price.toLocaleString() }}₽</p>        
-        <div class="flex items-center gap-2 text-lg" v-if="authenticated">
+        <div class="flex items-center gap-2 text-lg" v-if="authenticated && role == 'user'">
             <div class="flex items-center justify-center gap-6 px-4 py-1.5 grow rounded-xl border border-[#665E5E]">
                 <button class="text-2xl" @click="minusCount">-</button>
                 <p>{{ cardCount }}</p>
@@ -24,7 +24,7 @@
             <div class="flex flex-col gap-6 lg:w-1/2">
                 <p class="text-2xl font-Comfortaa">{{ props.title }}</p>
                 <p class="text-xl font-semibold">{{ props.price.toLocaleString() }}₽</p>
-                <div class="flex items-center gap-2 text-lg" v-if="authenticated">
+                <div class="flex items-center gap-2 text-lg" v-if="authenticated && role == 'user'">
                     <div class="flex items-center justify-center gap-6 px-4 py-1.5 grow rounded-xl border border-[#665E5E]">
                         <button class="text-2xl" @click="minusCount">-</button>
                         <p>{{ cardCount }}</p>
@@ -73,7 +73,7 @@
 
 
     /* проверка входа */
-    const { authenticated, id } = storeToRefs(useUserStore())
+    const { authenticated, id, role } = storeToRefs(useUserStore())
 
 
     /* создание сообщений */
@@ -102,7 +102,7 @@
             .eq('productId', `${props.id}`)
             .select()      
         
-            messageTitle.value = 'Количество товара обновлено!', messageType.value = true
+            messageTitle.value = 'Количество обновлено!', messageType.value = true
             setTimeout(() => {
                 messageTitle.value = null
             }, 3000)
@@ -115,7 +115,7 @@
             .select()       
             
             if(data) {
-                messageTitle.value = 'Товар добавлен в корзину!', messageType.value = true
+                messageTitle.value = 'Добавлено в корзину!', messageType.value = true
                 setTimeout(() => {
                     messageTitle.value = null
                 }, 3000)
