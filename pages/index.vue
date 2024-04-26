@@ -99,6 +99,13 @@
 </template>
 
 <script setup>
+    /* название и язык страницы */
+    useSeoMeta({
+        title: 'Главная',
+        lang: 'ru'
+	})
+    
+
     /* подключение БД */
     const supabase = useSupabaseClient() 
 

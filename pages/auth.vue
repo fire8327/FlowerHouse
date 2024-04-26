@@ -19,6 +19,13 @@
 </template>
 
 <script setup>
+    /* название и язык страницы */
+    useSeoMeta({
+        title: 'Вход',
+        lang: 'ru'
+	})
+    
+
     /* создание пользователя */
     const user = ref({
         login: "",

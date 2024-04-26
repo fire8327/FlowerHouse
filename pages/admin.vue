@@ -67,6 +67,13 @@
 </template>
 
 <script setup>
+    /* название и язык страницы */
+    useSeoMeta({
+        title: 'Админ панель',
+        lang: 'ru'
+	})
+    
+
     /* подключение БД */
     const supabase = useSupabaseClient() 
 
