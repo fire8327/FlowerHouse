@@ -36,6 +36,8 @@
         .update({ count: `${countProduct.value}` })
         .eq('id', `${props.id}`)
         .select()  
+
+        router.go()
     }
     const minusCard = async () => {
         if (countProduct.value > 1) {
@@ -46,12 +48,15 @@
             .update({ count: `${countProduct.value}` })
             .eq('id', `${props.id}`)
             .select() 
+
+            router.go()
         }
     }
 
 
     /* создание сообщений и роутера */
     const { messageTitle, messageType } = storeToRefs(useMessagesStore())
+    const router = useRouter()
 
 
     /* удаление товара и роут */
@@ -70,7 +75,11 @@
             messageTitle.value = 'Удалено!', messageType.value = true 
             setTimeout(() => {
                 messageTitle.value = null
-            }, 3000)             
+            }, 3000)       
+            setTimeout(() => {
+                router.go()
+                messageTitle.value = null
+            }, 500)       
         }
     }
 </script>

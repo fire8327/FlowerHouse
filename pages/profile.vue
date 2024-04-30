@@ -47,7 +47,7 @@
                 <p><span class="font-Comfortaa">Итоговая цена:</span> <span class="font-bold">{{ sums[ordersArray.indexOf(order)].toLocaleString() }} ₽</span></p>
             </div>
             <div class="flex flex-col gap-4 rounded-xl shadow-[0px_0px_13px_-7px_black] p-4" v-for="o in order">
-                <p><span class="font-Comfortaa">Наименование товара:</span> <span class="font-bold">{{ o.products.title }}</span></p>
+                <p><span class="font-Comfortaa">Наименование товара/услуги:</span> <span class="font-bold">{{ o.products.title }}</span></p>
                 <img :src="o.products.img" alt="" class="rounded-xl w-[160px]">
                 <p><span class="font-Comfortaa">Количество товара:</span> <span class="font-bold">{{ o.count }}</span></p>
                 <p><span class="font-Comfortaa">Цена за единицу:</span> <span class="font-bold">{{ o.price }}</span></p>
@@ -167,6 +167,10 @@
             setTimeout(() => {
                 messageTitle.value = null
             }, 3000) 
+            setTimeout(() => {
+                router.go()
+                messageTitle.value = null
+            }, 1500) 
         } else {
             messageTitle.value = 'Произошла ошибка!', messageType.value = false 
             setTimeout(() => {
@@ -219,6 +223,10 @@
             setTimeout(() => {
                 messageTitle.value = null
             }, 3000) 
+            setTimeout(() => {
+                router.go()
+                messageTitle.value = null
+            }, 1500) 
         } else {
             messageTitle.value = 'Произошла ошибка!', messageType.value = false 
             setTimeout(() => {
