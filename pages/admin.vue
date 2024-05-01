@@ -211,6 +211,10 @@
             setTimeout(() => {
                 messageTitle.value = null
             }, 3000) 
+            setTimeout(() => {
+                router.go()
+                messageTitle.value = null
+            }, 1500) 
         } else {
             messageTitle.value = 'Произошла ошибка!', messageType.value = false 
             setTimeout(() => {
