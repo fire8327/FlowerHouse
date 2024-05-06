@@ -50,7 +50,7 @@
                 <p><span class="font-Comfortaa">Наименование товара/услуги:</span> <span class="font-bold">{{ o.products.title }}</span></p>
                 <img :src="o.products.img" alt="" class="rounded-xl w-[160px]">
                 <p><span class="font-Comfortaa">Количество товара:</span> <span class="font-bold">{{ o.count }}</span></p>
-                <p><span class="font-Comfortaa">Цена за единицу:</span> <span class="font-bold">{{ o.price }}</span></p>
+                <p><span class="font-Comfortaa">Цена за единицу:</span> <span class="font-bold">{{ o.products.price.toLocaleString() }} ₽</span></p>
             </div>
             <button v-if="order[0].status == 'Новый'" @click="deleteOrder(order[0].orderId)" class="absolute top-4 right-4 text-red-500">
                 <Icon class="text-3xl" name="ic:baseline-close"/>
